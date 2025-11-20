@@ -9,93 +9,123 @@
 <body>
     <div class="container">
         <h1>FORMULARIO PARA AMPLIAR INFORMACIÓN DE ESTUDIO</h1>
+        <p class="descripcion">Complete este formulario para recibir información detallada sobre la carrera de su interés. Los campos marcados con asterisco (*) son obligatorios.</p>
         
         <form id="mainForm">
+            <!-- SECCIÓN: INFORMACIÓN DE ESTUDIO -->
             <section>
                 <h2>INFORMACIÓN DE ESTUDIO</h2>
+                <p class="seccion-descripcion">Seleccione la carrera sobre la cual desea recibir información.</p>
                 
                 <div class="field">
-                    <label for="carrera">¿Seleccione una carrera? <span class="required">*</span></label>
-                    <select id="carrera" name="carrera" required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="administracion">ADMINISTRACIÓN DE EMPRESAS</option>
-                        <option value="bacteriologia">BACTERIOLOGÍA</option>
-                        <option value="contaduria">CONTADURÍA PÚBLICA</option>
-                        <option value="derecho">DERECHO</option>
-                        <option value="enfermeria">ENFERMERÍA</option>
-                        <option value="sistemas">INGENIERÍA DE SISTEMAS</option>
-                        <option value="instrumentacion">INSTRUMENTACIÓN QUIRÚRGICA</option>
-                        <option value="educacion">LICENCIATURA EN EDUCACIÓN INFANTIL</option>
-                        <option value="medicina">MEDICINA</option>
-                        <option value="odontologia">ODONTOLOGÍA</option>
-                        <option value="prehospitalaria">TECNOLOGÍA EN ATENCIÓN PREHOSPITALARIA</option>
-                        <option value="estetica">TECNOLOGÍA EN ESTÉTICA Y COSMETOLOGÍA</option>
-                        <option value="mecanica">TECNOLOGÍA EN MECÁNICA DENTAL</option>
-                        <option value="social">TRABAJO SOCIAL</option>
+                    <label for="carrera">¿Qué carrera le interesa? <span class="required">*</span></label>
+                    <select id="carrera" name="carrera" required aria-required="true">
+                        <option value="">Seleccione una carrera</option>
+                        <option value="administracion">Administración de Empresas</option>
+                        <option value="bacteriologia">Bacteriología</option>
+                        <option value="contaduria">Contaduría Pública</option>
+                        <option value="derecho">Derecho</option>
+                        <option value="enfermeria">Enfermería</option>
+                        <option value="sistemas">Ingeniería de Sistemas</option>
+                        <option value="instrumentacion">Instrumentación Quirúrgica</option>
+                        <option value="educacion">Licenciatura en Educación Infantil</option>
+                        <option value="medicina">Medicina</option>
+                        <option value="odontologia">Odontología</option>
+                        <option value="prehospitalaria">Tecnología en Atención Prehospitalaria</option>
+                        <option value="estetica">Tecnología en Estética y Cosmetología</option>
+                        <option value="mecanica">Tecnología en Mecánica Dental</option>
+                        <option value="social">Trabajo Social</option>
                     </select>
+                    <small class="ayuda">Ejemplo: Medicina, Derecho, Enfermería</small>
                 </div>
             </section>
 
+            <!-- SECCIÓN: INFORMACIÓN PERSONAL -->
             <section>
-                <h2>INFORMACIÓN DE CONTACTO</h2>
+                <h2>INFORMACIÓN PERSONAL</h2>
+                <p class="seccion-descripcion">Ingrese sus datos personales tal como aparecen en su documento de identidad.</p>
                 
                 <div class="row">
                     <div class="field">
-                        <label for="primerNombre">PRIMER NOMBRE <span class="required">*</span></label>
-                        <input type="text" id="primerNombre" name="primerNombre" required>
+                        <label for="primerNombre">Primer Nombre <span class="required">*</span></label>
+                        <input type="text" id="primerNombre" name="primerNombre" required 
+                               placeholder="Ej: Juan" aria-required="true">
+                        <small class="ayuda">Solo letras, sin números ni caracteres especiales</small>
                     </div>
                     
                     <div class="field">
-                        <label for="segundoNombre">SEGUNDO NOMBRE <span class="optional">(Opcional)</span></label>
-                        <input type="text" id="segundoNombre" name="segundoNombre">
+                        <label for="segundoNombre">Segundo Nombre <span class="optional">(Opcional)</span></label>
+                        <input type="text" id="segundoNombre" name="segundoNombre" 
+                               placeholder="Ej: Carlos">
+                        <small class="ayuda">Déjelo en blanco si no tiene segundo nombre</small>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="field">
-                        <label for="primerApellido">PRIMER APELLIDO <span class="required">*</span></label>
-                        <input type="text" id="primerApellido" name="primerApellido" required>
+                        <label for="primerApellido">Primer Apellido <span class="required">*</span></label>
+                        <input type="text" id="primerApellido" name="primerApellido" required 
+                               placeholder="Ej: Pérez" aria-required="true">
+                        <small class="ayuda">Solo letras, sin números ni caracteres especiales</small>
                     </div>
                     
                     <div class="field">
-                        <label for="segundoApellido">SEGUNDO APELLIDO <span class="optional">(Opcional)</span></label>
-                        <input type="text" id="segundoApellido" name="segundoApellido">
+                        <label for="segundoApellido">Segundo Apellido <span class="optional">(Opcional)</span></label>
+                        <input type="text" id="segundoApellido" name="segundoApellido" 
+                               placeholder="Ej: García">
+                        <small class="ayuda">Déjelo en blanco si no tiene segundo apellido</small>
                     </div>
                 </div>
+            </section>
 
+            <!-- SECCIÓN: DOCUMENTO DE IDENTIDAD -->
+            <section>
+                <h2>DOCUMENTO DE IDENTIDAD</h2>
+                <p class="seccion-descripcion">Proporcione la información de su documento de identificación oficial.</p>
+                
                 <div class="row">
                     <div class="field">
-                        <label for="tipoDocumento">TIPO DE DOCUMENTO <span class="required">*</span></label>
-                        <select id="tipoDocumento" name="tipoDocumento" required>
-                            <option value="">Seleccione una opción</option>
+                        <label for="tipoDocumento">Tipo de Documento <span class="required">*</span></label>
+                        <select id="tipoDocumento" name="tipoDocumento" required aria-required="true">
+                            <option value="">Seleccione el tipo de documento</option>
                             <option value="cc">Cédula de Ciudadanía</option>
                             <option value="ti">Tarjeta de Identidad</option>
                             <option value="ce">Cédula de Extranjería</option>
                             <option value="pasaporte">Pasaporte</option>
                         </select>
+                        <small class="ayuda">Seleccione su documento de identidad principal</small>
                     </div>
                     
                     <div class="field">
-                        <label for="numeroDocumento">NÚMERO DEL DOCUMENTO <span class="required">*</span></label>
+                        <label for="numeroDocumento">Número del Documento <span class="required">*</span></label>
                         <input type="text" id="numeroDocumento" name="numeroDocumento" required 
-                               minlength="6" maxlength="15" inputmode="numeric">
+                               minlength="6" maxlength="15" inputmode="numeric" 
+                               placeholder="Ej: 1234567890" aria-required="true">
+                        <small class="ayuda">Solo números, mínimo 6 dígitos. Ej: 1234567890</small>
                     </div>
                 </div>
+            </section>
 
+            <!-- SECCIÓN: INFORMACIÓN DEMOGRÁFICA -->
+            <section>
+                <h2>INFORMACIÓN DEMOGRÁFICA</h2>
+                <p class="seccion-descripcion">Complete los siguientes datos demográficos.</p>
+                
                 <div class="row">
                     <div class="field">
-                        <label for="sexoBiologico">SEXO BIOLÓGICO <span class="required">*</span></label>
-                        <select id="sexoBiologico" name="sexoBiologico" required>
+                        <label for="sexoBiologico">Sexo Biológico <span class="required">*</span></label>
+                        <select id="sexoBiologico" name="sexoBiologico" required aria-required="true">
                             <option value="">Seleccione una opción</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                         </select>
+                        <small class="ayuda">Según su documento de identidad</small>
                     </div>
                     
                     <div class="field">
-                        <label for="paisNacimiento">PAÍS DE NACIMIENTO <span class="required">*</span></label>
-                        <select id="paisNacimiento" name="paisNacimiento" required>
-                            <option value="">Seleccione una opción</option>
+                        <label for="paisNacimiento">País de Nacimiento <span class="required">*</span></label>
+                        <select id="paisNacimiento" name="paisNacimiento" required aria-required="true">
+                            <option value="">Seleccione su país de nacimiento</option>
                             <option value="colombia">Colombia</option>
                             <option value="venezuela">Venezuela</option>
                             <option value="ecuador">Ecuador</option>
@@ -103,91 +133,132 @@
                             <option value="panama">Panamá</option>
                             <option value="otro">Otro</option>
                         </select>
+                        <small class="ayuda">País donde nació</small>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="field">
-                        <label for="fechaNacimiento">FECHA DE NACIMIENTO <span class="required">*</span></label>
-                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required
-                               max="2024-12-31" min="1900-01-01">
+                        <label for="fechaNacimiento">Fecha de Nacimiento <span class="required">*</span></label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required aria-required="true">
+                        <small class="ayuda">Seleccione su fecha de nacimiento</small>
                     </div>
                     
                     <div class="field">
-                        <label for="edad">EDAD <span class="required">*</span></label>
-                        <input type="number" id="edad" name="edad" required readonly>
+                        <label for="edad">Edad <span class="required">*</span></label>
+                        <input type="text" id="edad" name="edad" required readonly tabindex="-1" placeholder="Se calcula automáticamente">
+                        <small class="ayuda">Se calcula automáticamente al ingresar la fecha</small>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="field">
-                        <label for="estadoCivil">ESTADO CIVIL <span class="required">*</span></label>
-                        <select id="estadoCivil" name="estadoCivil" required>
-                            <option value="">Seleccione una opción</option>
+                        <label for="estadoCivil">Estado Civil <span class="required">*</span></label>
+                        <select id="estadoCivil" name="estadoCivil" required aria-required="true">
+                            <option value="">Seleccione su estado civil</option>
                             <option value="soltero">Soltero(a)</option>
                             <option value="casado">Casado(a)</option>
                             <option value="union">Unión Libre</option>
                             <option value="divorciado">Divorciado(a)</option>
                             <option value="viudo">Viudo(a)</option>
                         </select>
+                        <small class="ayuda">Estado civil actual</small>
                     </div>
                     
                     <div class="field">
-                        <label for="correo">CORREO ELECTRÓNICO <span class="required">*</span></label>
+                        <label for="correo">Correo Electrónico <span class="required">*</span></label>
                         <input type="email" id="correo" name="correo" required
-                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                               placeholder="ejemplo@correo.com" aria-required="true">
+                        <small class="ayuda">Formato: usuario@dominio.com</small>
                     </div>
                 </div>
+            </section>
 
+            <!-- SECCIÓN: INFORMACIÓN DE CONTACTO -->
+            <section>
+                <h2>INFORMACIÓN DE CONTACTO</h2>
+                <p class="seccion-descripcion">Proporcione al menos un número telefónico donde podamos contactarle.</p>
+                
                 <div class="row">
                     <div class="field">
-                        <label for="telefono">TELÉFONO <span class="optional">(Opcional)</span></label>
+                        <label for="telefono">Teléfono Fijo <span class="optional">(Opcional)</span></label>
                         <input type="tel" id="telefono" name="telefono"
-                               minlength="7" maxlength="15" inputmode="numeric">
+                               minlength="7" maxlength="15" inputmode="numeric"
+                               placeholder="Ej: 6012345678">
+                        <small class="ayuda">Incluya código de área. Ej: 6012345678</small>
                     </div>
                     
                     <div class="field">
-                        <label for="celular">CELULAR <span class="required">*</span></label>
+                        <label for="celular">Teléfono Celular <span class="required">*</span></label>
                         <input type="tel" id="celular" name="celular" required
-                               minlength="7" maxlength="15" inputmode="numeric">
+                               minlength="7" maxlength="15" inputmode="numeric"
+                               placeholder="Ej: 3001234567" aria-required="true">
+                        <small class="ayuda">10 dígitos. Ej: 3001234567</small>
                     </div>
                 </div>
             </section>
 
+            <!-- SECCIÓN: ENCUESTA ADICIONAL -->
             <section>
-                <h2>ENCUESTA ADICIONAL</h2>
+                <h2>INFORMACIÓN ADICIONAL</h2>
+                <p class="seccion-descripcion">La siguiente información nos ayudará a brindarle un mejor servicio.</p>
                 
                 <div class="field">
-                    <label>¿SE ENCUENTRA USTED LABORANDO ACTUALMENTE? <span class="required">*</span></label>
+                    <label>¿Se encuentra usted laborando actualmente? <span class="required">*</span></label>
                     <div class="radio-group">
-                        <label><input type="radio" name="laborando" value="si" required> Sí</label>
-                        <label><input type="radio" name="laborando" value="no"> No</label>
+                        <label><input type="radio" name="laborando" value="si" required aria-required="true"> Sí, trabajo actualmente</label>
+                        <label><input type="radio" name="laborando" value="no"> No trabajo actualmente</label>
                     </div>
+                    <small class="ayuda">Indique si actualmente tiene un empleo</small>
                 </div>
 
                 <div class="field">
-                    <label>¿CUENTA CON RECURSOS ADICIONAL PARA FINANCIAR SU ESTUDIO? <span class="required">*</span></label>
+                    <label>¿Cuenta con recursos adicionales para financiar su estudio? <span class="required">*</span></label>
                     <div class="radio-group">
-                        <label><input type="radio" name="recursos" value="si" required> Sí</label>
-                        <label><input type="radio" name="recursos" value="no"> No</label>
+                        <label><input type="radio" name="recursos" value="si" required aria-required="true"> Sí, cuento con recursos</label>
+                        <label><input type="radio" name="recursos" value="no"> No cuento con recursos</label>
                     </div>
+                    <small class="ayuda">Indique si tiene recursos propios o apoyo financiero</small>
                 </div>
 
                 <div class="field">
-                    <label for="personasCargo">¿DIGA EL NUMERO DE PERSONAS A SU CARGO? <span class="required">*</span></label>
-                    <input type="number" id="personasCargo" name="personasCargo" min="0" max="20" required>
+                    <label for="personasCargo">¿Cuántas personas dependen económicamente de usted? <span class="required">*</span></label>
+                    <input type="number" id="personasCargo" name="personasCargo" min="0" max="20" required 
+                           placeholder="Ej: 0" aria-required="true">
+                    <small class="ayuda">Ingrese el número de personas (0 si no tiene). Ej: 0, 1, 2, 3</small>
                 </div>
 
-                <div class="field">
+                <div class="field checkbox-field">
                     <label>
                         <input type="checkbox" name="financiacion" value="si">
-                        QUIERO QUE ME ENVIEN INFORMACIÓN DE FORMAS DE FINANCIACIÓN
+                        Deseo recibir información sobre formas de financiación
                     </label>
+                    <small class="ayuda">Marque esta opción si desea conocer opciones de crédito, becas y financiación</small>
                 </div>
             </section>
 
-            <button type="submit">ENVIAR</button>
+            <!-- BOTONES -->
+            <div class="botones">
+                <button type="button" id="btnRevisar" class="btn-secundario">REVISAR INFORMACIÓN</button>
+                <button type="submit" class="btn-principal">ENVIAR FORMULARIO</button>
+            </div>
         </form>
+
+        <!-- MODAL DE REVISIÓN -->
+        <div id="modalRevision" class="modal">
+            <div class="modal-contenido">
+                <h2>REVISE SU INFORMACIÓN ANTES DE ENVIAR</h2>
+                <p class="modal-descripcion">Por favor verifique que todos los datos sean correctos. Puede cerrar esta ventana para hacer correcciones.</p>
+                
+                <div id="resumenDatos" class="resumen"></div>
+                
+                <div class="modal-botones">
+                    <button type="button" id="btnCerrarModal" class="btn-secundario">HACER CORRECCIONES</button>
+                    <button type="button" id="btnConfirmarEnvio" class="btn-principal">CONFIRMAR Y ENVIAR</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
