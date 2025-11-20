@@ -1,6 +1,4 @@
-// ======================
 // CÁLCULO DE EDAD
-// ======================
 const inputFecha = document.getElementById('fechaNacimiento');
 const inputEdad = document.getElementById('edad');
 
@@ -32,9 +30,7 @@ function calcularEdad() {
 inputFecha.addEventListener('change', calcularEdad);
 inputFecha.addEventListener('input', calcularEdad);
 
-// ======================
 // VALIDACIONES DE ENTRADA
-// ======================
 function soloLetras(e) {
     const key = e.key;
     const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/;
@@ -64,9 +60,7 @@ camposNumeros.forEach(id => {
     }
 });
 
-// ======================
 // VALIDACIONES ESPECÍFICAS
-// ======================
 document.getElementById('correo').addEventListener('input', function() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (this.value && !emailRegex.test(this.value)) {
@@ -105,9 +99,7 @@ document.getElementById('personasCargo').addEventListener('input', function() {
     }
 });
 
-// ======================
 // FEEDBACK VISUAL
-// ======================
 document.querySelectorAll('input[required], select[required]').forEach(campo => {
     campo.addEventListener('blur', function() {
         if (this.checkValidity() && this.value) {
@@ -126,9 +118,7 @@ document.querySelectorAll('input[required], select[required]').forEach(campo => 
     });
 });
 
-// ======================
 // MODAL DE REVISIÓN
-// ======================
 const modal = document.getElementById('modalRevision');
 const btnRevisar = document.getElementById('btnRevisar');
 const btnCerrarModal = document.getElementById('btnCerrarModal');
@@ -236,9 +226,7 @@ function enviarFormulario() {
     });
 }
 
-// ======================
 // ENVÍO DEL FORMULARIO
-// ======================
 document.getElementById('mainForm').addEventListener('submit', function(e) {
     e.preventDefault();
     

@@ -349,21 +349,20 @@ input[type="checkbox"] {
     .row {
         grid-template-columns: 1fr;
     }
-    
+
     .container {
         padding: 20px;
     }
-    
+
     .botones {
         flex-direction: column;
     }
-    
+
     .modal-botones {
         flex-direction: column;
     }
 }
 
-/* ESTILOS PARA INPUT DATE - MEJORADO */
 input[type="date"] {
     position: relative;
     padding-right: 40px;
