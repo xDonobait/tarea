@@ -5,9 +5,8 @@ const inputEdad = document.getElementById('edad');
 function calcularEdad() {
     const valorFecha = inputFecha.value;
     
-    // Si no hay fecha, limpiar edad
+    // Si no hay fecha, no calcular
     if (!valorFecha) {
-        inputEdad.value = '';
         return;
     }
     
@@ -22,8 +21,8 @@ function calcularEdad() {
         edad--;
     }
     
-    // Mostrar edad
-    inputEdad.value = edad + ' años';
+    // Mostrar edad calculada
+    inputEdad.value = edad;
 }
 
 // Calcular edad al seleccionar o cambiar la fecha
@@ -52,7 +51,7 @@ camposLetras.forEach(id => {
     document.getElementById(id).addEventListener('keydown', soloLetras);
 });
 
-const camposNumeros = ['numeroDocumento', 'telefono', 'celular', 'personasCargo'];
+const camposNumeros = ['numeroDocumento', 'telefono', 'celular', 'personasCargo', 'edad'];
 camposNumeros.forEach(id => {
     const campo = document.getElementById(id);
     if (campo) {
@@ -96,6 +95,16 @@ document.getElementById('numeroDocumento').addEventListener('blur', function() {
 document.getElementById('personasCargo').addEventListener('input', function() {
     if (this.value < 0) {
         this.value = 0;
+    }
+});
+
+// Validar edad
+document.getElementById('edad').addEventListener('input', function() {
+    if (this.value < 0) {
+        this.value = 0;
+    }
+    if (this.value > 120) {
+        this.value = 120;
     }
 });
 
