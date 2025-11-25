@@ -76,11 +76,8 @@ El proyecto incluye un **sistema completo de testing automatizado** que verifica
 
 ### Ejecutar los Tests
 
-1. **Inicia un servidor local** (ver sección "Inicio Rápido")
+1. **Abrir tests.html con VSCode Live Server**
 2. **Abre la página de tests:**
-   ```
-   http://localhost:8000/tests.html
-   ```
 3. Los tests se ejecutan **automáticamente** al cargar la página
 4. También puedes hacer click en **"▶ Ejecutar Tests"** para volver a ejecutarlos
 
@@ -240,34 +237,9 @@ El formulario se adapta automáticamente a diferentes tamaños de pantalla:
 - Scroll suave al campo problemático
 - Limpieza automática al corregir
 
-## 🚧 Limitaciones Conocidas
-
-- **No hay backend:** El formulario solo valida del lado del cliente
-- **No hay persistencia:** Los datos se pierden al cerrar el navegador
-- **Solo español:** No hay soporte multi-idioma
-- **Requiere servidor HTTP:** No funciona con `file:///` (los tests)
-
-## 📈 Posibles Mejoras Futuras
-
-- [ ] Integración con backend/API
-- [ ] Guardado local con `localStorage`
-- [ ] Internacionalización (i18n)
-- [ ] Tests unitarios con Jest
-- [ ] Barra de progreso del formulario
-- [ ] Contador de caracteres en tiempo real
-- [ ] CAPTCHA para prevenir spam
-- [ ] Modo oscuro (dark mode)
 
 ## 📄 Licencia
 
 Este proyecto fue creado con fines educativos. Nunca envíe contraseñas a través de este formulario.
 
-## 👥 Autor
 
-Proyecto desarrollado como demostración de mejores prácticas en diseño de formularios web.
-
----
-
-**Calificación de Usabilidad:** ⭐⭐⭐⭐⭐ (5.0/5.0)  
-**Tests Pasados:** 10/10 (100%)  
-**Estado:** En Producción ✅
