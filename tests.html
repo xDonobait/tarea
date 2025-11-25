@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests de Usabilidad - Formulario Universidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tests.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Tests de Usabilidad</h1>
+            <p>Verificación automatizada de las 10 directrices para formularios</p>
+        </header>
+
+        <!-- Resumen -->
+        <section class="summary">
+            <div class="summary-card total">
+                <div class="summary-label">Total Directrices</div>
+                <div class="summary-value">10</div>
+            </div>
+            <div class="summary-card passed">
+                <div class="summary-label">Cumple</div>
+                <div class="summary-value" id="passedCount">-</div>
+            </div>
+            <div class="summary-card failed">
+                <div class="summary-label">No Cumple</div>
+                <div class="summary-value" id="failedCount">-</div>
+            </div>
+            <div class="summary-card score">
+                <div class="summary-label">Porcentaje</div>
+                <div class="summary-value" id="percentValue">-</div>
+            </div>
+        </section>
+
+        <!-- Calificación Final -->
+        <section class="grade-section">
+            <div class="grade-title">Calificación Final</div>
+            <div class="grade-value" id="gradeValue">-</div>
+            <div class="grade-formula" id="gradeFormula">(Porcentaje% × 5.0)</div>
+        </section>
+
+        <!-- Botón ejecutar -->
+        <div class="run-section">
+            <button class="btn-run" onclick="runTests()">▶ Ejecutar Tests</button>
+        </div>
+
+        <!-- Lista de tests -->
+        <div class="tests-list" id="testsList">
+            <!-- Se genera dinámicamente -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Sistema de Testing Automatizado para Pruebas de Usabilidad</p>
+        </footer>
+    </main>
+
+    <!-- Iframe oculto con el formulario -->
+    <iframe id="formFrame" src="index.html" class="hidden-frame"></iframe>
+
+    <script src="js/tests.js"></script>
+</body>
+</html>
