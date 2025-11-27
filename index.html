@@ -18,7 +18,7 @@
                 <p class="seccion-descripcion">Seleccione la carrera sobre la cual desea recibir información.</p>
                 
                 <div class="field">
-                    <label for="carrera">¿Qué carrera le interesa? <span class="required">*</span></label>
+                    <label for="carrera">¿Qué carrera le interesa? <span class="required">(requerido) *</span></label>
                     <select id="carrera" name="carrera" required aria-required="true">
                         <option value="">Seleccione una carrera</option>
                         <option value="administracion">Administración de Empresas</option>
@@ -47,7 +47,7 @@
                 
                 <div class="row">
                     <div class="field">
-                        <label for="primerNombre">Primer Nombre <span class="required">*</span></label>
+                        <label for="primerNombre">Primer Nombre <span class="required">(requerido) *</span></label>
                         <input type="text" id="primerNombre" name="primerNombre" required 
                                maxlength="50" placeholder="Ej: Juan" aria-required="true">
                         <small class="ayuda">Solo letras, sin números ni caracteres especiales (máximo 50 caracteres)</small>
@@ -63,7 +63,7 @@
 
                 <div class="row">
                     <div class="field">
-                        <label for="primerApellido">Primer Apellido <span class="required">*</span></label>
+                        <label for="primerApellido">Primer Apellido <span class="required">(requerido) *</span></label>
                         <input type="text" id="primerApellido" name="primerApellido" required 
                                maxlength="50" placeholder="Ej: Pérez" aria-required="true">
                         <small class="ayuda">Solo letras, sin números ni caracteres especiales (máximo 50 caracteres)</small>
@@ -85,7 +85,7 @@
                 
                 <div class="row">
                     <div class="field">
-                        <label for="tipoDocumento">Tipo de Documento <span class="required">*</span></label>
+                        <label for="tipoDocumento">Tipo de Documento <span class="required">(requerido) *</span></label>
                         <select id="tipoDocumento" name="tipoDocumento" required aria-required="true">
                             <option value="">Seleccione el tipo de documento</option>
                             <option value="cc">Cédula de Ciudadanía</option>
@@ -97,7 +97,7 @@
                     </div>
                     
                     <div class="field">
-                        <label for="numeroDocumento">Número del Documento <span class="required">*</span></label>
+                        <label for="numeroDocumento">Número del Documento <span class="required">(requerido) *</span></label>
                         <input type="text" id="numeroDocumento" name="numeroDocumento" required 
                                minlength="6" maxlength="15" inputmode="numeric" 
                                placeholder="Ej: 1101814604" aria-required="true">
@@ -113,7 +113,7 @@
                 
                 <div class="row">
                     <div class="field">
-                        <label for="sexoBiologico">Sexo Biológico <span class="required">*</span></label>
+                        <label for="sexoBiologico">Sexo Biológico <span class="required">(requerido) *</span></label>
                         <select id="sexoBiologico" name="sexoBiologico" required aria-required="true">
                             <option value="">Seleccione una opción</option>
                             <option value="masculino">Masculino</option>
@@ -123,7 +123,7 @@
                     </div>
                     
                     <div class="field">
-                        <label for="paisNacimiento">País de Nacimiento <span class="required">*</span></label>
+                        <label for="paisNacimiento">País de Nacimiento <span class="required">(requerido) *</span></label>
                         <select id="paisNacimiento" name="paisNacimiento" required aria-required="true">
                             <option value="">Seleccione su país de nacimiento</option>
                             <option value="colombia">Colombia</option>
@@ -139,13 +139,13 @@
 
                 <div class="row">
                     <div class="field">
-                        <label for="fechaNacimiento">Fecha de Nacimiento <span class="required">*</span></label>
+                        <label for="fechaNacimiento">Fecha de Nacimiento <span class="required">(requerido) *</span></label>
                         <input type="date" id="fechaNacimiento" name="fechaNacimiento" required aria-required="true">
                         <small class="ayuda">Seleccione su fecha de nacimiento</small>
                     </div>
                     
                     <div class="field">
-                        <label for="edad">Edad <span class="required">*</span></label>
+                        <label for="edad">Edad <span class="required">(requerido) *</span></label>
                         <input type="text" id="edad" name="edad" required readonly tabindex="-1" placeholder="Se calcula automáticamente">
                         <small class="ayuda">Se calcula automáticamente al ingresar la fecha</small>
                     </div>
@@ -153,7 +153,7 @@
 
                 <div class="row">
                     <div class="field">
-                        <label for="estadoCivil">Estado Civil <span class="required">*</span></label>
+                        <label for="estadoCivil">Estado Civil <span class="required">(requerido) *</span></label>
                         <select id="estadoCivil" name="estadoCivil" required aria-required="true">
                             <option value="">Seleccione su estado civil</option>
                             <option value="soltero">Soltero(a)</option>
@@ -166,7 +166,7 @@
                     </div>
                     
                     <div class="field">
-                        <label for="correo">Correo Electrónico <span class="required">*</span></label>
+                        <label for="correo">Correo Electrónico <span class="required">(requerido) *</span></label>
                         <input type="email" id="correo" name="correo" required
                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                placeholder="ejemplo@correo.com" aria-required="true">
@@ -190,7 +190,7 @@
                     </div>
                     
                     <div class="field">
-                        <label for="celular">Teléfono Celular <span class="required">*</span></label>
+                        <label for="celular">Teléfono Celular <span class="required">(requerido) *</span></label>
                         <input type="tel" id="celular" name="celular" required
                                minlength="7" maxlength="15" inputmode="numeric"
                                placeholder="Ej: 3001234567" aria-required="true">
@@ -205,7 +205,7 @@
                 <p class="seccion-descripcion">La siguiente información nos ayudará a brindarle un mejor servicio.</p>
                 
                 <div class="field">
-                    <label>¿Se encuentra usted laborando actualmente? <span class="required">*</span></label>
+                    <label>¿Se encuentra usted laborando actualmente? <span class="required">(requerido) *</span></label>
                     <div class="radio-group">
                         <label><input type="radio" name="laborando" value="si" required aria-required="true"> Sí, trabajo actualmente</label>
                         <label><input type="radio" name="laborando" value="no"> No trabajo actualmente</label>
@@ -214,7 +214,7 @@
                 </div>
 
                 <div class="field">
-                    <label>¿Cuenta con recursos adicionales para financiar su estudio? <span class="required">*</span></label>
+                    <label>¿Cuenta con recursos adicionales para financiar su estudio? <span class="required">(requerido) *</span></label>
                     <div class="radio-group">
                         <label><input type="radio" name="recursos" value="si" required aria-required="true"> Sí, cuento con recursos</label>
                         <label><input type="radio" name="recursos" value="no"> No cuento con recursos</label>
@@ -223,7 +223,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="personasCargo">¿Cuántas personas dependen económicamente de usted? <span class="required">*</span></label>
+                    <label for="personasCargo">¿Cuántas personas dependen económicamente de usted? <span class="required">(requerido) *</span></label>
                     <input type="number" id="personasCargo" name="personasCargo" min="0" max="20" required 
                            placeholder="Ej: 0" aria-required="true">
                     <small class="ayuda">Ingrese el número de personas (0 si no tiene). Ej: 0, 1, 2, 3</small>
