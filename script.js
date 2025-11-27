@@ -49,8 +49,10 @@ function soloNumeros(e) {
 
 // FORMATEO AUTOMÁTICO DE DATOS
 function formatearNombre(input) {
-    // Capitalizar cada palabra
+    // Eliminar caracteres inválidos
     let valor = input.value;
+    valor = valor.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, ''); // Solo letras y espacios
+    // Capitalizar cada palabra
     valor = valor.replace(/\b\w/g, letra => letra.toUpperCase());
     input.value = valor;
 }
@@ -106,6 +108,10 @@ const camposLetras = ['primerNombre', 'segundoNombre', 'primerApellido', 'segund
 camposLetras.forEach(id => {
     const campo = document.getElementById(id);
     campo.addEventListener('keydown', soloLetras);
+    // Limpiar y formatear al escribir
+    campo.addEventListener('input', function() {
+        formatearNombre(this);
+    });
     // Formatear al soltar la tecla
     campo.addEventListener('blur', function() {
         formatearNombre(this);
