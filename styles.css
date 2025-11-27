@@ -5,42 +5,46 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 0;
     line-height: 1.6;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: #000;
-    padding: 40px;
-    border: 2px solid #fff;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    padding: 50px 60px;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 15px;
     font-size: 24px;
-    color: #fff;
+    color: #333333;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
 .descripcion {
     text-align: center;
-    color: #ccc;
+    color: #666666;
     margin-bottom: 30px;
-    font-size: 14px;
-    padding: 0 20px;
+    font-size: 13px;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    line-height: 1.5;
 }
 
 section {
     margin-bottom: 35px;
     padding-bottom: 25px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 section:last-of-type {
@@ -48,28 +52,25 @@ section:last-of-type {
 }
 
 h2 {
-    background-color: #fff;
-    color: #000;
+    background-color: #f0f0f0;
+    color: #333333;
     padding: 12px 15px;
     margin-bottom: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-h2:hover {
-    background-color: #f0f0f0;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    border-left: 3px solid #333333;
 }
 
 .seccion-descripcion {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
+    color: #777777;
+    font-size: 12px;
+    margin-bottom: 18px;
     font-style: italic;
 }
 
 .field {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .row {
@@ -80,28 +81,28 @@ h2:hover {
 
 label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-size: 13px;
-    font-weight: bold;
-    color: #fff;
+    font-weight: 500;
+    color: #333333;
 }
 
 .required {
-    color: #ff4444;
-    font-weight: bold;
+    color: #dc2626;
+    font-weight: 600;
 }
 
 .optional {
     font-weight: normal;
-    color: #888;
+    color: #999999;
     font-style: italic;
 }
 
 .ayuda {
     display: block;
-    color: #888;
+    color: #999999;
     font-size: 11px;
-    margin-top: 5px;
+    margin-top: 4px;
     font-style: italic;
 }
 
@@ -112,13 +113,14 @@ input[type="number"],
 input[type="date"],
 select {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #fff;
-    background-color: #000;
-    color: #fff;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    font-family: Arial, sans-serif;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 13px;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    border-radius: 4px;
 }
 
 input[type="text"]:focus,
@@ -128,9 +130,8 @@ input[type="number"]:focus,
 input[type="date"]:focus,
 select:focus {
     outline: none;
-    border-color: #fff;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    border-color: #666666;
+    box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.05);
 }
 
 input[type="text"]:hover,
@@ -139,113 +140,121 @@ input[type="tel"]:hover,
 input[type="number"]:hover,
 input[type="date"]:hover,
 select:hover {
-    background-color: #0a0a0a;
+    border-color: #999999;
 }
 
 input[readonly] {
-    background-color: #1a1a1a;
+    background-color: #f5f5f5;
     cursor: not-allowed;
-    opacity: 0.7;
+    border-color: #e5e5e5;
 }
 
 input::placeholder {
-    color: #666;
-    font-style: italic;
+    color: #cccccc;
 }
 
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 8px;
 }
 
 .radio-group label {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-weight: normal;
     cursor: pointer;
-    transition: color 0.2s ease;
-    padding: 8px;
-    border: 1px solid #333;
+    padding: 8px 10px;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
+    background-color: #fafafa;
+    transition: all 0.15s ease;
+    color: #333333;
+    font-size: 13px;
 }
 
 .radio-group label:hover {
-    background-color: #1a1a1a;
-    border-color: #555;
+    background-color: #f0f0f0;
+    border-color: #999999;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     cursor: pointer;
-    accent-color: #fff;
+    accent-color: #333333;
 }
 
 .checkbox-field label {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
-    padding: 10px;
-    border: 1px solid #333;
+    padding: 8px 10px;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    background-color: #fafafa;
+    transition: all 0.15s ease;
+    font-weight: normal;
+    color: #333333;
+    font-size: 13px;
 }
 
 .checkbox-field label:hover {
-    background-color: #1a1a1a;
-    border-color: #555;
+    background-color: #f0f0f0;
+    border-color: #999999;
 }
 
 .botones {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     margin-top: 30px;
+    justify-content: center;
 }
 
 .btn-principal,
 .btn-secundario {
-    flex: 1;
-    padding: 15px;
-    border: 2px solid #fff;
-    font-size: 14px;
-    font-weight: bold;
+    flex: 0 1 200px;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    border-radius: 4px;
 }
 
 .btn-principal {
-    background-color: #fff;
-    color: #000;
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #333333;
 }
 
 .btn-principal:hover {
-    background-color: #000;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
 }
 
 .btn-secundario {
-    background-color: #000;
-    color: #fff;
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #cccccc;
 }
 
 .btn-secundario:hover {
-    background-color: #1a1a1a;
-    transform: translateY(-2px);
+    background-color: #f0f0f0;
+    border-color: #999999;
 }
 
 .btn-principal:active,
 .btn-secundario:active {
-    transform: translateY(0);
+    transform: scale(0.98);
 }
 
 /* MODAL DE REVISIÓN */
@@ -257,49 +266,58 @@ input[type="checkbox"] {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.3);
     overflow-y: auto;
+    padding: 20px;
 }
 
 .modal.activo {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
 .modal-contenido {
-    background-color: #000;
-    border: 2px solid #fff;
+    background-color: #ffffff;
+    border-radius: 4px;
     padding: 30px;
     max-width: 700px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .modal-contenido h2 {
-    margin-bottom: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 12px 15px;
+    margin: -30px -30px 20px -30px;
+    border-radius: 4px 4px 0 0;
+    font-size: 15px;
+    border-left: none;
 }
 
 .modal-descripcion {
-    color: #ccc;
+    color: #666666;
     font-size: 13px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .resumen {
-    background-color: #1a1a1a;
-    border: 1px solid #333;
+    background-color: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
     padding: 20px;
-    margin-bottom: 25px;
-    color: #fff;
+    margin-bottom: 20px;
+    color: #333333;
 }
 
 .resumen-seccion {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .resumen-seccion:last-child {
@@ -308,10 +326,12 @@ input[type="checkbox"] {
 }
 
 .resumen-seccion h3 {
-    color: #fff;
-    font-size: 14px;
-    margin-bottom: 12px;
+    color: #333333;
+    font-size: 12px;
+    margin-bottom: 10px;
     text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 .resumen-item {
@@ -321,27 +341,30 @@ input[type="checkbox"] {
 }
 
 .resumen-label {
-    font-weight: bold;
-    color: #ccc;
-    min-width: 200px;
+    font-weight: 600;
+    color: #666666;
+    min-width: 180px;
 }
 
 .resumen-valor {
-    color: #fff;
+    color: #333333;
+    flex: 1;
 }
 
 .modal-botones {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 /* FEEDBACK VISUAL */
 .campo-valido {
-    border-color: #4CAF50 !important;
+    border-color: #4ade80 !important;
+    background-color: #f0fdf4 !important;
 }
 
 .campo-invalido {
-    border-color: #ff4444 !important;
+    border-color: #f87171 !important;
+    background-color: #fef2f2 !important;
 }
 
 /* RESPONSIVE */
@@ -351,58 +374,68 @@ input[type="checkbox"] {
     }
 
     .container {
-        padding: 20px;
+        padding: 30px 20px;
     }
 
     .botones {
         flex-direction: column;
     }
 
+    .btn-principal,
+    .btn-secundario {
+        flex: 1;
+    }
+
     .modal-botones {
         flex-direction: column;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .modal-contenido {
+        padding: 20px;
+    }
+
+    .modal-contenido h2 {
+        margin: -20px -20px 15px -20px;
     }
 }
 
 input[type="date"] {
     position: relative;
-    padding-right: 40px;
-    color-scheme: dark;
+    color-scheme: light;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23333"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>');
     background-size: 20px 20px;
     width: 20px;
     height: 20px;
 }
 
 input[type="date"]::-webkit-datetime-edit {
-    color: #fff;
+    color: #333333;
 }
 
 input[type="date"]::-webkit-datetime-edit-fields-wrapper {
-    color: #fff;
+    color: #333333;
 }
 
 input[type="date"]::-webkit-datetime-edit-text {
-    color: #fff;
+    color: #333333;
     padding: 0 2px;
 }
 
 input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
-    color: #fff;
+    color: #333333;
 }
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-clear-button {
     display: none;
-}
-
-/* Para Firefox */
-input[type="date"]::-moz-calendar-picker-indicator {
-    filter: invert(1);
-    cursor: pointer;
 }
