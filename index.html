@@ -204,37 +204,41 @@
                 <h2>INFORMACIÓN ADICIONAL</h2>
                 <p class="seccion-descripcion">La siguiente información nos ayudará a brindarle un mejor servicio.</p>
                 
-                <div class="field">
-                    <label>¿Se encuentra usted laborando actualmente? <span class="required">(requerido) *</span></label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="laborando" value="si" required aria-required="true"> Sí, trabajo actualmente</label>
-                        <label><input type="radio" name="laborando" value="no"> No trabajo actualmente</label>
+                <div class="row">
+                    <div class="field">
+                        <label>¿Se encuentra usted laborando actualmente? <span class="required">(requerido) *</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="laborando" value="si" required aria-required="true"> Sí, trabajo actualmente</label>
+                            <label><input type="radio" name="laborando" value="no"> No trabajo actualmente</label>
+                        </div>
+                        <small class="ayuda">Indique si actualmente tiene un empleo</small>
                     </div>
-                    <small class="ayuda">Indique si actualmente tiene un empleo</small>
-                </div>
 
-                <div class="field">
-                    <label>¿Cuenta con recursos adicionales para financiar su estudio? <span class="required">(requerido) *</span></label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="recursos" value="si" required aria-required="true"> Sí, cuento con recursos</label>
-                        <label><input type="radio" name="recursos" value="no"> No cuento con recursos</label>
+                    <div class="field">
+                        <label>¿Cuenta con recursos adicionales para financiar su estudio? <span class="required">(requerido) *</span></label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="recursos" value="si" required aria-required="true"> Sí, cuento con recursos</label>
+                            <label><input type="radio" name="recursos" value="no"> No cuento con recursos</label>
+                        </div>
+                        <small class="ayuda">Indique si tiene recursos propios o apoyo financiero</small>
                     </div>
-                    <small class="ayuda">Indique si tiene recursos propios o apoyo financiero</small>
                 </div>
 
-                <div class="field">
-                    <label for="personasCargo">¿Cuántas personas dependen económicamente de usted? <span class="required">(requerido) *</span></label>
-                    <input type="number" id="personasCargo" name="personasCargo" min="0" max="20" required 
-                           placeholder="Ej: 0" aria-required="true">
-                    <small class="ayuda">Ingrese el número de personas (0 si no tiene). Ej: 0, 1, 2, 3</small>
-                </div>
+                <div class="row">
+                    <div class="field">
+                        <label for="personasCargo">¿Cuántas personas dependen económicamente de usted? <span class="required">(requerido) *</span></label>
+                        <input type="number" id="personasCargo" name="personasCargo" min="0" max="20" required 
+                               placeholder="Ej: 0" aria-required="true">
+                        <small class="ayuda">Ingrese el número de personas (0 si no tiene). Ej: 0, 1, 2, 3</small>
+                    </div>
 
-                <div class="field checkbox-field">
-                    <label>
-                        <input type="checkbox" name="financiacion" value="si">
-                        Deseo recibir información sobre formas de financiación
-                    </label>
-                    <small class="ayuda">Marque esta opción si desea conocer opciones de crédito, becas y financiación</small>
+                    <div class="field checkbox-field">
+                        <label>
+                            <input type="checkbox" name="financiacion" value="si">
+                            Deseo recibir información sobre formas de financiación
+                        </label>
+                        <small class="ayuda">Marque esta opción si desea conocer opciones de crédito, becas y financiación</small>
+                    </div>
                 </div>
             </section>
 
