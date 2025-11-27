@@ -47,9 +47,69 @@ function soloNumeros(e) {
     }
 }
 
+// FORMATEO AUTOMÁTICO DE DATOS
+function formatearNombre(input) {
+    // Capitalizar cada palabra
+    let valor = input.value;
+    valor = valor.replace(/\b\w/g, letra => letra.toUpperCase());
+    input.value = valor;
+}
+
+function formatearTelefono(input) {
+    // Formato: XXX-XXX-XXXX
+    let valor = input.value.replace(/\D/g, ''); // Solo números
+    if (valor.length > 0) {
+        if (valor.length <= 3) {
+            valor = valor;
+        } else if (valor.length <= 6) {
+            valor = valor.slice(0, 3) + '-' + valor.slice(3);
+        } else {
+            valor = valor.slice(0, 3) + '-' + valor.slice(3, 6) + '-' + valor.slice(6, 10);
+        }
+    }
+    input.value = valor;
+}
+
+function formatearDocumento(input) {
+    // Formato colombiano: XXX.XXX.XXX.XXX (hasta 12 dígitos)
+    let valor = input.value.replace(/\D/g, ''); // Solo números
+    if (valor.length > 0) {
+        if (valor.length <= 3) {
+            valor = valor;
+        } else if (valor.length <= 6) {
+            valor = valor.slice(0, 3) + '.' + valor.slice(3);
+        } else if (valor.length <= 9) {
+            valor = valor.slice(0, 3) + '.' + valor.slice(3, 6) + '.' + valor.slice(6);
+        } else {
+            valor = valor.slice(0, 3) + '.' + valor.slice(3, 6) + '.' + valor.slice(6, 9) + '.' + valor.slice(9, 12);
+        }
+    }
+    input.value = valor;
+}
+
+function formatearFecha(dateString) {
+    // Convertir fecha YYYY-MM-DD a formato legible: DD de mes de YYYY
+    if (!dateString) return '-';
+    
+    const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+                   'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    
+    const fecha = new Date(dateString + 'T00:00:00');
+    const dia = fecha.getDate();
+    const mes = meses[fecha.getMonth()];
+    const año = fecha.getFullYear();
+    
+    return `${dia} de ${mes} de ${año}`;
+}
+
 const camposLetras = ['primerNombre', 'segundoNombre', 'primerApellido', 'segundoApellido'];
 camposLetras.forEach(id => {
-    document.getElementById(id).addEventListener('keydown', soloLetras);
+    const campo = document.getElementById(id);
+    campo.addEventListener('keydown', soloLetras);
+    // Formatear al soltar la tecla
+    campo.addEventListener('blur', function() {
+        formatearNombre(this);
+    });
 });
 
 const camposNumeros = ['numeroDocumento', 'telefono', 'celular', 'personasCargo'];
@@ -58,6 +118,24 @@ camposNumeros.forEach(id => {
     if (campo) {
         campo.addEventListener('keydown', soloNumeros);
     }
+});
+
+// Formateo automático de teléfono
+const inputTelefono = document.getElementById('telefono');
+const inputCelular = document.getElementById('celular');
+
+inputTelefono.addEventListener('input', function() {
+    formatearTelefono(this);
+});
+
+inputCelular.addEventListener('input', function() {
+    formatearTelefono(this);
+});
+
+// Formateo automático de documento
+const inputDocumento = document.getElementById('numeroDocumento');
+inputDocumento.addEventListener('input', function() {
+    formatearDocumento(this);
 });
 
 // VALIDACIONES ESPECÍFICAS
@@ -173,8 +251,8 @@ function mostrarResumen() {
         'Información Demográfica': {
             'Sexo Biológico': document.getElementById('sexoBiologico').options[document.getElementById('sexoBiologico').selectedIndex].text,
             'País de Nacimiento': document.getElementById('paisNacimiento').options[document.getElementById('paisNacimiento').selectedIndex].text,
-            'Fecha de Nacimiento': formData.get('fechaNacimiento') || '-',
-            'Edad': formData.get('edad') + ' años' || '-',
+            'Fecha de Nacimiento': formatearFecha(formData.get('fechaNacimiento')),
+            'Edad': formData.get('edad') || '-',
             'Estado Civil': document.getElementById('estadoCivil').options[document.getElementById('estadoCivil').selectedIndex].text,
             'Correo Electrónico': formData.get('correo') || '-'
         },
