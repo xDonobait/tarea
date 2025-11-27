@@ -47,10 +47,10 @@ function validarEdad() {
         edad--;
     }
     
-    // Validar que la edad sea realista (entre 14 y 100 años)
-    if (edad < 14) {
-        inputFecha.setCustomValidity('Debe ser mayor de 14 años para aplicar');
-        alert('Debes ser mayor de 14 años para completar este formulario');
+    // Validar que la edad sea realista (entre 15 y 100 años)
+    if (edad < 15) {
+        inputFecha.setCustomValidity('Debe ser mayor de 15 años para aplicar');
+        alert('Debes ser mayor de 15 años para completar este formulario');
         return;
     }
     
