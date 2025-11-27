@@ -5,9 +5,34 @@ const inputEdad = document.getElementById('edad');
 function calcularEdad() {
     const valorFecha = inputFecha.value;
     
-    // Si no hay fecha, limpiar edad
+    // Si no hay fecha completa, limpiar edad
     if (!valorFecha) {
         inputEdad.value = '';
+        inputFecha.setCustomValidity('');
+        return;
+    }
+    
+    // Calcular edad
+    const fechaNac = new Date(valorFecha);
+    const hoy = new Date();
+    
+    let edad = hoy.getFullYear() - fechaNac.getFullYear();
+    const mes = hoy.getMonth() - fechaNac.getMonth();
+    
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+        edad--;
+    }
+    
+    // Mostrar edad
+    inputEdad.value = edad + ' años';
+}
+
+function validarEdad() {
+    const valorFecha = inputFecha.value;
+    
+    // Si no hay fecha, no validar aún
+    if (!valorFecha) {
+        inputFecha.setCustomValidity('');
         return;
     }
     
@@ -25,27 +50,24 @@ function calcularEdad() {
     // Validar que la edad sea realista (entre 14 y 100 años)
     if (edad < 14) {
         inputFecha.setCustomValidity('Debe ser mayor de 14 años para aplicar');
-        inputEdad.value = '';
         alert('Debes ser mayor de 14 años para completar este formulario');
         return;
     }
     
     if (edad > 100) {
         inputFecha.setCustomValidity('Por favor ingresa una fecha de nacimiento válida');
-        inputEdad.value = '';
         alert('Por favor ingresa una fecha de nacimiento realista');
         return;
     }
     
     inputFecha.setCustomValidity('');
-    
-    // Mostrar edad
-    inputEdad.value = edad + ' años';
 }
 
 // Calcular edad al seleccionar o cambiar la fecha
 inputFecha.addEventListener('change', calcularEdad);
 inputFecha.addEventListener('input', calcularEdad);
+// Validar edad solo cuando pierda el foco (después de terminar de escribir)
+inputFecha.addEventListener('blur', validarEdad);
 
 // VALIDACIONES DE ENTRADA
 function soloLetras(e) {
