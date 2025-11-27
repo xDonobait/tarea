@@ -2,18 +2,8 @@
 const inputFecha = document.getElementById('fechaNacimiento');
 const inputEdad = document.getElementById('edad');
 
-function calcularEdad() {
-    const valorFecha = inputFecha.value;
-    
-    // Si no hay fecha completa, limpiar edad
-    if (!valorFecha) {
-        inputEdad.value = '';
-        inputFecha.setCustomValidity('');
-        return;
-    }
-    
-    // Calcular edad
-    const fechaNac = new Date(valorFecha);
+function calcularEdad(fecha) {
+    const fechaNac = new Date(fecha);
     const hoy = new Date();
     
     let edad = hoy.getFullYear() - fechaNac.getFullYear();
@@ -23,51 +13,81 @@ function calcularEdad() {
         edad--;
     }
     
-    // Mostrar edad
+    return edad;
+}
+
+function actualizarCampoEdad() {
+    const valorFecha = inputFecha.value;
+    
+    // Si no hay fecha completa, limpiar edad
+    if (!valorFecha) {
+        inputEdad.value = '';
+        return;
+    }
+    
+    // Validar que la fecha sea válida
+    const fechaNac = new Date(valorFecha);
+    if (isNaN(fechaNac.getTime())) {
+        inputEdad.value = '';
+        return;
+    }
+    
+    // Calcular y mostrar edad
+    const edad = calcularEdad(valorFecha);
     inputEdad.value = edad + ' años';
 }
 
 function validarEdad() {
     const valorFecha = inputFecha.value;
     
-    // Si no hay fecha, no validar aún
+    // Si no hay fecha, limpiar validación
     if (!valorFecha) {
         inputFecha.setCustomValidity('');
         return;
     }
     
-    // Calcular edad
+    // Validar que la fecha sea válida
     const fechaNac = new Date(valorFecha);
-    const hoy = new Date();
-    
-    let edad = hoy.getFullYear() - fechaNac.getFullYear();
-    const mes = hoy.getMonth() - fechaNac.getMonth();
-    
-    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
-        edad--;
+    if (isNaN(fechaNac.getTime())) {
+        inputFecha.setCustomValidity('Por favor ingrese una fecha válida');
+        return;
     }
+    
+    // Validar que no sea fecha futura
+    const hoy = new Date();
+    if (fechaNac > hoy) {
+        inputFecha.setCustomValidity('La fecha de nacimiento no puede ser en el futuro');
+        return;
+    }
+    
+    // Calcular edad
+    const edad = calcularEdad(valorFecha);
     
     // Validar que la edad sea realista (entre 15 y 100 años)
     if (edad < 15) {
-        inputFecha.setCustomValidity('Debe ser mayor de 15 años para aplicar');
-        alert('Debes ser mayor de 15 años para completar este formulario');
+        inputFecha.setCustomValidity('Debe tener al menos 15 años para aplicar');
         return;
     }
     
     if (edad > 100) {
-        inputFecha.setCustomValidity('Por favor ingresa una fecha de nacimiento válida');
-        alert('Por favor ingresa una fecha de nacimiento realista');
+        inputFecha.setCustomValidity('Por favor ingrese una fecha de nacimiento válida');
         return;
     }
     
+    // Todo válido
     inputFecha.setCustomValidity('');
 }
 
-// Calcular edad al seleccionar o cambiar la fecha
-inputFecha.addEventListener('change', calcularEdad);
-inputFecha.addEventListener('input', calcularEdad);
-// Validar edad solo cuando pierda el foco (después de terminar de escribir)
-inputFecha.addEventListener('blur', validarEdad);
+// Actualizar edad al cambiar la fecha (solo cuando está completa)
+inputFecha.addEventListener('change', function() {
+    actualizarCampoEdad();
+    validarEdad();
+});
+
+// Limpiar validaciones al hacer foco
+inputFecha.addEventListener('focus', function() {
+    inputFecha.setCustomValidity('');
+});
 
 // VALIDACIONES DE ENTRADA
 function soloLetras(e) {
