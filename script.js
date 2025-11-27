@@ -163,9 +163,10 @@ inputDocumento.addEventListener('input', function() {
 
 // VALIDACIONES ESPECÍFICAS
 document.getElementById('correo').addEventListener('input', function() {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Regex más estricto para validar email
+    const emailRegex = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (this.value && !emailRegex.test(this.value)) {
-        this.setCustomValidity('Por favor ingrese un correo válido');
+        this.setCustomValidity('Por favor ingrese un correo válido (ej: usuario@dominio.com)');
     } else {
         this.setCustomValidity('');
     }
