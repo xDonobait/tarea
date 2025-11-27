@@ -72,9 +72,31 @@ inputFecha.addEventListener('blur', validarEdad);
 // VALIDACIONES DE ENTRADA
 function soloLetras(e) {
     const key = e.key;
+    const input = e.target;
     const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/;
+    
+    // Prevenir caracteres no válidos
     if (!regex.test(key) && key !== 'Backspace' && key !== 'Delete' && key !== 'Tab' && key !== 'ArrowLeft' && key !== 'ArrowRight') {
         e.preventDefault();
+        return;
+    }
+    
+    // Prevenir múltiples espacios consecutivos
+    if (key === ' ') {
+        const cursorPos = input.selectionStart;
+        const valorActual = input.value;
+        
+        // Si el carácter anterior es un espacio, prevenir otro espacio
+        if (cursorPos > 0 && valorActual[cursorPos - 1] === ' ') {
+            e.preventDefault();
+            return;
+        }
+        
+        // Si es el primer carácter, prevenir espacio al inicio
+        if (cursorPos === 0) {
+            e.preventDefault();
+            return;
+        }
     }
 }
 
@@ -88,12 +110,28 @@ function soloNumeros(e) {
 
 // FORMATEO AUTOMÁTICO DE DATOS
 function formatearNombre(input) {
-    // Eliminar espacios al inicio y final
+    let valor = input.value;
+    
+    // Eliminar caracteres inválidos (mantener solo letras y espacios)
+    valor = valor.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
+    
+    // Eliminar espacios múltiples (más de uno consecutivo)
+    valor = valor.replace(/\s{2,}/g, ' ');
+    
+    // Eliminar espacios al inicio
+    valor = valor.replace(/^\s+/, '');
+    
+    // Capitalizar cada palabra
+    valor = valor.replace(/\b\w/g, letra => letra.toUpperCase());
+    
+    input.value = valor;
+}
+
+function finalizarFormateoNombre(input) {
+    // Al finalizar la edición, eliminar espacios al final
     let valor = input.value.trim();
-    // Eliminar caracteres inválidos
-    valor = valor.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, ''); // Solo letras y espacios
-    // Eliminar espacios múltiples
-    valor = valor.replace(/\s+/g, ' ');
+    // Asegurar que no haya espacios múltiples
+    valor = valor.replace(/\s{2,}/g, ' ');
     // Capitalizar cada palabra
     valor = valor.replace(/\b\w/g, letra => letra.toUpperCase());
     input.value = valor;
@@ -154,9 +192,9 @@ camposLetras.forEach(id => {
     campo.addEventListener('input', function() {
         formatearNombre(this);
     });
-    // Formatear al soltar la tecla
+    // Formatear y limpiar espacios finales al perder el foco
     campo.addEventListener('blur', function() {
-        formatearNombre(this);
+        finalizarFormateoNombre(this);
     });
 });
 
