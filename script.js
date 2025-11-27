@@ -22,6 +22,23 @@ function calcularEdad() {
         edad--;
     }
     
+    // Validar que la edad sea realista (entre 14 y 100 años)
+    if (edad < 14) {
+        inputFecha.setCustomValidity('Debe ser mayor de 14 años para aplicar');
+        inputEdad.value = '';
+        alert('Debes ser mayor de 14 años para completar este formulario');
+        return;
+    }
+    
+    if (edad > 100) {
+        inputFecha.setCustomValidity('Por favor ingresa una fecha de nacimiento válida');
+        inputEdad.value = '';
+        alert('Por favor ingresa una fecha de nacimiento realista');
+        return;
+    }
+    
+    inputFecha.setCustomValidity('');
+    
     // Mostrar edad
     inputEdad.value = edad + ' años';
 }
