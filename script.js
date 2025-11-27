@@ -88,9 +88,12 @@ function soloNumeros(e) {
 
 // FORMATEO AUTOMÁTICO DE DATOS
 function formatearNombre(input) {
+    // Eliminar espacios al inicio y final
+    let valor = input.value.trim();
     // Eliminar caracteres inválidos
-    let valor = input.value;
     valor = valor.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, ''); // Solo letras y espacios
+    // Eliminar espacios múltiples
+    valor = valor.replace(/\s+/g, ' ');
     // Capitalizar cada palabra
     valor = valor.replace(/\b\w/g, letra => letra.toUpperCase());
     input.value = valor;
@@ -358,9 +361,17 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
     let todosValidos = true;
     
     camposRequeridos.forEach(campo => {
-        if (!campo.value || !campo.checkValidity()) {
+        // Limpiar espacios al inicio y final
+        const valorLimpio = campo.value.trim();
+        
+        // Validar que no esté vacío y que no sea solo espacios
+        if (!valorLimpio || !campo.checkValidity()) {
             todosValidos = false;
             campo.classList.add('campo-invalido');
+            // Limpiar el campo si solo tiene espacios
+            if (!valorLimpio) {
+                campo.value = '';
+            }
             
             setTimeout(() => {
                 campo.classList.remove('campo-invalido');
